@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection & Tracking</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .upload-form { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; }
+        .upload-form:hover { border-color: #999; }
+        .btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+        .file-input { margin: 20px 0; }
+        .flash-messages { margin: 20px 0; }
+        .flash { padding: 10px; margin: 5px 0; border-radius: 4px; }
+        .flash-error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Object Detection & Tracking</h1>
+    <p>Upload a video file to process with YOLO object detection and DeepSORT tracking.</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="flash flash-error">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <div class="upload-form">
+            <h3>Select Video File</h3>
+            <p>Supported formats: MP4, AVI, MOV, MKV, WMV</p>
+            <p>Maximum file size: 100MB</p>
+            <div class="file-input">
+                <input type="file" name="file" accept=".mp4,.avi,.mov,.mkv,.wmv" required>
+            </div>
+            <button type="submit" class="btn">Upload & Process</button>
+        </div>
+    </form>
+
+    <div>
+        <h3>How it works:</h3>
+        <ol>
+            <li>Upload your video file</li>
+            <li>YOLO detects objects in each frame</li>
+            <li>DeepSORT tracks objects across frames</li>
+            <li>Download the processed video with tracking IDs</li>
+        </ol>
+    </div>
+</body>
+</html>

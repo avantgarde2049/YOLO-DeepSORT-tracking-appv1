@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Results</title>
+</head>
+<body>
+    <h1>Object Detection Results</h1>
+    
+    <h2>Original Image</h2>
+    <img src="{{ original_image }}" style="max-width: 600px;">
+    
+    <h2>Detected Objects</h2>
+    <img src="{{ detected_image }}" style="max-width: 600px;">
+    
+    <h3>Detection Results:</h3>
+    <ul>
+        {% for result in results %}
+        <li>
+            {{ result.class }} (confidence: {{ "%.2f"|format(result.confidence) }}) 
+            at {{ result.box }}
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="/">Upload another image</a>
+</body>
+</html>

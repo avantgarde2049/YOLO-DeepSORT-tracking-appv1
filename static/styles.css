@@ -1,0 +1,54 @@
+/* Basic styling for the Flask frontend */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    margin-bottom: 60px; /* To prevent footer overlap */
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Add some basic element styling */
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #35424a;
+    border-bottom: 2px solid #35424a;
+    padding-bottom: 5px;
+}
+
+/* Add some interactive elements */
+button {
+    background: #35424a;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4e6470;
+}
